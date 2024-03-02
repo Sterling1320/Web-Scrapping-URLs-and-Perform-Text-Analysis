@@ -1,0 +1,45 @@
+Instructions
+
+How I approached the problem:
+After going through the objectives and text analysis files, I got a general understanding of what I had to do after that I made a step by step plan to achieve this task.
+For web scrapping, after experimenting with different modules like selenium, scrapy and beautiful soup, I opted to go with beautiful soup. Here is a breakdown of the entire code step by step-
+
+1. Importing Libraries:
+The code begins by importing various Python libraries, including `os`, `pandas`, `requests`, `string`, `BeautifulSoup` from `bs4`, `stopwords` and tokenization modules from `nltk`, `re`, and `hyphenate`.
+
+2. Setting Up Stopwords and Word Lists:
+The script creates a list of stopwords from multiple files stored in the specified folder (`stopwords_folder`).
+Positive and negative word lists are loaded from separate text files (`positive-words.txt` and `negative-words.txt`).
+
+3. Defining Functions:
+Several functions are defined for text processing and analysis, including removing punctuation, stopwords, counting syllables, calculating average syllables per word, counting personal pronouns, and calculating average word length.
+
+4. Reading Input Excel File:
+   - The script reads an input Excel file named "Input.xlsx" using the pandas library.
+
+5. Text Extraction and Analysis Loop:
+   - For each row in the input DataFrame, the script extracts text content from the specified URL using the `requests` library and parses the HTML with BeautifulSoup.
+   - The extracted text is processed and saved to a text file in a folder named "ExtractedText."
+   - Text analysis is performed, calculating various metrics such as positive and negative scores, polarity score, subjectivity score, average sentence length, fog index, and more.
+   - The results are stored in a dictionary and appended to a list (`results_list`).
+
+6. Creating Output DataFrame:
+   - The list of dictionaries (`results_list`) is converted into a pandas DataFrame (`output_df`).
+
+7. Writing Results to Output Excel File:
+   - The final DataFrame is written to an output Excel file named "Output Data Structure.xlsx."
+
+
+How To Run the file:
+The first step is to open the .py file on an editor. You need to add the file paths of the respective directories (input file, stop words, postive negative words etc) and once the paths have been added, simply open a terminal and run the command "python filename.py" and it will traverse through all the URLs and add the output in the output data structure file. To parse other URLs, you can simply add the URL to the input excel file and then run the script using the same command.
+
+Dependencies:
+1. Python 3
+2. Pandas for Dataframes and Excel manipulation
+3. Requests for making HTTP requests to fetch content from URLs
+4. BeautifulSoup (bs4) for web scrapping
+5. NLTK for stopwords, tokenization etc
+6. Hyphenate for hyphenation (counting syllables)
+7. Built in libraries like os, string and regular expressions(re).
+8. You need the input,output excel files along with the master dictionary and stop word dictionary as the code primarily relies on these files.
+ 
